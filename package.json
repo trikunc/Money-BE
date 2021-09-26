@@ -1,7 +1,7 @@
 {
-  "name": "moleculer-finany",
+  "name": "maney",
   "version": "1.0.0",
-  "description": "My Moleculer-based microservices project",
+  "description": "Manage your daily money",
   "scripts": {
     "dev": "moleculer-runner --env --repl --hot services/**/*.service.js",
     "start": "moleculer-runner --env",
@@ -17,7 +17,7 @@
     "microservices",
     "moleculer"
   ],
-  "author": "",
+  "author": "budi@busanid.dev",
   "devDependencies": {
     "eslint": "^7.7.0",
     "jest": "^26.4.2",
