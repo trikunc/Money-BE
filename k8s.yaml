@@ -10,7 +10,7 @@ data:
   LOGLEVEL: info
   SERVICEDIR: services
   TRANSPORTER: nats://nats:4222
-  MONGO_URI: mongodb://mongo/moleculer-finany
+  MONGO_URI: mongodb://mongo/moleculer-maney
 
 ---
 #########################################################
@@ -37,7 +37,7 @@ metadata:
   name: ingress
 spec:
   rules:
-  - host: moleculer-finany.127.0.0.1.nip.io
+  - host: moleculer-maney.127.0.0.1.nip.io
     http:
       paths:
       - path: /
@@ -65,7 +65,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: moleculer-finany
+        image: moleculer-maney
         envFrom:
         - configMapRef:
             name: common-env
@@ -93,7 +93,7 @@ spec:
     spec:
       containers:
       - name: greeter
-        image: moleculer-finany
+        image: moleculer-maney
         envFrom:
         - configMapRef:
             name: common-env
@@ -121,7 +121,7 @@ spec:
     spec:
       containers:
       - name: products
-        image: moleculer-finany
+        image: moleculer-maney
         envFrom:
         - configMapRef:
             name: common-env
