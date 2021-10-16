@@ -1,6 +1,6 @@
-# moleculer-maney
+# moleculer-monsy
 
-This is a [Moleculer](https://moleculer.services/)-based microservices project. 
+This is a [Moleculer](https://moleculer.services/)-based microservices project.
 
 ## SETUP
 
@@ -8,14 +8,7 @@ This is a [Moleculer](https://moleculer.services/)-based microservices project.
 cp .env.example .env
 ```
 
-### Requirement
-Maney backend building with moleculer based microservices project.
-- [NodeJS ( 16.x)](https://nodejs.org/en/download/) 
-- [Docker](https://www.docker.com/)
-- [docker-compose](https://docs.docker.com/compose/)
-- [Firebase](https://firebase.google.com/)
-
-### How to get `MANEY_GOOGLE_APPLICATION_CREDENTIALS`.
+### How to get `MONSY_GOOGLE_APPLICATION_CREDENTIALS`
 
 In the Firebase console, open Settings > Service Accounts.
 
@@ -25,17 +18,10 @@ Securely store the JSON file containing the key.
 
 Download `service-account-file.json` file.
 
-### Run the project
-Start this project with run :
-
-```sh
-$ npm install
-```
-
 ### Docker
 
 ```sh
-$ ./up.sh
+./up.sh
 ```
 
 ### Database
@@ -43,36 +29,6 @@ $ ./up.sh
 Install sequelize cli
 
 ```sh
-$ sequelize db:migrate --env init
-$ sequelize db:seed:all --env init
-```
-
-### Database Config
-
-Adding config.json on models/config
-
-```sh
-{
-  "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
-  }
-}
+npx sequelize-cli db:migrate --env init
+npx sequelize-cli db:seed:all --env init
 ```

@@ -1,7 +1,7 @@
 {
-  "name": "maney",
+  "name": "moleculer-finany",
   "version": "1.0.0",
-  "description": "Manage your daily money",
+  "description": "My Moleculer-based microservices project",
   "scripts": {
     "dev": "moleculer-runner --env --repl --hot services/**/*.service.js",
     "start": "moleculer-runner --env",
@@ -17,31 +17,31 @@
     "microservices",
     "moleculer"
   ],
-  "author": "Budi Santoso",
+  "author": "",
   "devDependencies": {
-    "eslint": "^7.7.0",
-    "jest": "^26.4.2",
-    "jest-cli": "^26.4.2",
-    "moleculer-repl": "^0.6.4"
+    "eslint": "7.7.0",
+    "jest": "26.4.2",
+    "jest-cli": "26.4.2",
+    "moleculer-repl": "0.6.4"
   },
   "dependencies": {
-    "dotenv": "^10.0.0",
-    "firebase-admin": "^9.4.2",
-    "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.20",
-    "moleculer": "^0.14.10",
-    "moleculer-db": "^0.8.4",
-    "moleculer-db-adapter-mongo": "^0.4.7",
-    "moleculer-db-adapter-sequelize": "^0.2.10",
-    "moleculer-web": "^0.9.1",
-    "moment": "^2.29.1",
-    "mysql2": "^2.2.5",
-    "nats": "^1.4.12",
-    "pg": "^8.4.1",
-    "pg-hstore": "^2.3.3",
-    "sequelize": "^6.3.5",
-    "sequelize-cli": "^6.2.0",
-    "uuid": "^8.3.2"
+    "dotenv": "10.0.0",
+    "firebase-admin": "9.4.2",
+    "jsonwebtoken": "8.5.1",
+    "lodash": "4.17.20",
+    "moleculer": "0.14.10",
+    "moleculer-db": "0.8.4",
+    "moleculer-db-adapter-mongo": "0.4.7",
+    "moleculer-db-adapter-sequelize": "0.2.10",
+    "moleculer-web": "0.9.1",
+    "moment": "2.29.1",
+    "mysql2": "2.2.5",
+    "nats": "1.4.12",
+    "pg": "8.4.1",
+    "pg-hstore": "2.3.3",
+    "sequelize": "6.3.5",
+    "sequelize-cli": "6.2.0",
+    "uuid": "8.3.2"
   },
   "engines": {
     "node": ">= 10.x.x"

@@ -1,2 +1,2 @@
-#/bin/bash
-docker-compose -p maney down
+#!/bin/bash#
+docker compose -p monsy down

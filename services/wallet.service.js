@@ -226,7 +226,8 @@ module.exports = {
       async handler(ctx) {
         const { user } = ctx.meta;
         const { id, page = 0, limit = 100, from, to } = ctx.params;
-        // TODO: Temporary disable paging
+
+        // TODO: Temporary disable paging? get all?
         // const nLimit = parseInt(limit);
         // const nPage = parseInt(page);
 
@@ -278,6 +279,7 @@ module.exports = {
         const { totalIncome, totalExpense } = total.dataValues;
 
         const transactions = await Transactions.findAndCountAll({
+          // TODO: get all?!
           // limit: nLimit,
           // offset: nPage * nLimit,
           where: {

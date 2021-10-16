@@ -285,6 +285,92 @@ module.exports = {
         });
       },
     },
+
+    /**
+     * get list transaction by range
+     * GET /list/2021-01-01/2021-02-02/:page/:limit
+     *
+     * @returns
+     */
+    listByRange: {
+      auth: "required",
+      rest: {
+        method: "GET",
+        path: "/list/:start/:end/:page/:limit",
+      },
+      async handler(ctx) {
+        const { user } = ctx.meta;
+        const { page = 0, limit = 10, start, end } = ctx.params;
+        const nLimit = parseInt(limit);
+        const nPage = parseInt(page);
+        const startTime = moment(start)
+          .clone()
+          .startOf("day")
+          .format("YYYY-MM-DD hh:mm");
+        const endTime = moment(end)
+          .clone()
+          .endOf("day")
+          .format("YYYY-MM-DD hh:mm");
+
+        const total = await Transactions.findOne({
+          where: {
+            userUuid: user.uuid,
+            date: {
+              [Op.between]: [startTime, endTime],
+            },
+          },
+          attributes: [
+            [
+              sequelize.fn(
+                "SUM",
+                sequelize.literal(
+                  `CASE WHEN "Transactions"."type" = 'income' THEN balance ELSE 0 END`
+                )
+              ),
+              "totalIncome",
+            ],
+            [
+              sequelize.fn(
+                "SUM",
+                sequelize.literal(
+                  `CASE WHEN "Transactions"."type" = 'expense' THEN balance ELSE 0 END`
+                )
+              ),
+              "totalExpense",
+            ],
+          ],
+        });
+
+        const { totalIncome, totalExpense } = total.dataValues;
+
+        const transactions = await Transactions.findAndCountAll({
+          limit: nLimit,
+          offset: nPage * nLimit,
+          where: {
+            userUuid: user.uuid,
+            date: {
+              [Op.between]: [startTime, endTime],
+            },
+          },
+          order: [["date", "DESC"]],
+          include: [{ model: Categories, as: "category" }],
+        });
+
+        const totalRes = {
+          total: transactions.count,
+          income: totalIncome || 0,
+          expense: totalExpense || 0,
+        };
+
+        return success({
+          result: {
+            wallets: {},
+            total: totalRes,
+            transactions: transactions.rows,
+          },
+        });
+      },
+    },
     /**
      * update transaction
      *

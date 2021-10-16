@@ -1,2 +1,2 @@
-#/bin/bash
-docker-compose -p maney up -d
+#!/bin/bash#
+docker compose -p monsy up -d
