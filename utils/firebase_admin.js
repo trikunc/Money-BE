@@ -1,7 +1,7 @@
 const admin = require("firebase-admin");
 
 
-const serviceAccount = JSON.parse(process.env.MONSY_GOOGLE_APPLICATION_CREDENTIALS);
+const serviceAccount = JSON.parse(process.env.MANEY_GOOGLE_APPLICATION_CREDENTIALS);
 
 module.exports = admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
